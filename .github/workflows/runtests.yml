@@ -1,14 +1,17 @@
 name: runtest
 on: push
-  jobs:
-    doeverything:
-      runs-on: ubuntu-latest
-      steps:
-        -name: "Clone the soruce code"
-         uses: actions/chechout@v3
-        -name: "Setup Node.js"
+jobs:
+  doeverything:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Clone the source code"
+        uses: actions/checkout@v3
+
+      - name: "Setup Node.js"
         uses: actions/setup-node@v3
         with: 
           node-version: "20.x"
-        - run: npm install
-        - run: npm run build 
+          
+      - run: npm install
+      - run: npm run build
+
